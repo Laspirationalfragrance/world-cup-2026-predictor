@@ -1145,13 +1145,11 @@ function render() {
         </div>`;
       }
     }
-    }
 
     html += `</section>`;
   }
 
   mainContent.innerHTML = html;
-  updateNavButtons();
 }
 
 // ═══════════════════════════════════════════
@@ -1163,7 +1161,6 @@ if (DATES.includes('2026-06-26')) {
 } else {
   dateSelect.value = 'all';
 }
-updateNavButtons();
 render();
 
 // ═══════════════════════════════════════════
