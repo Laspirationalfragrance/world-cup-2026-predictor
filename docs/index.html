@@ -712,11 +712,40 @@ const FLAGS = {
 
 function getFlag(teamName) {
   if (FLAGS[teamName]) return FLAGS[teamName];
-  // Try partial match
   for (const [k, v] of Object.entries(FLAGS)) {
     if (teamName.includes(k) || k.includes(teamName)) return v;
   }
   return "🏳️";
+}
+
+// ═══════════════════════════════════════════
+//  CHINESE TEAM NAME MAPPING
+// ═══════════════════════════════════════════
+const ZH_NAMES = {
+  "Argentina":"阿根廷","Brazil":"巴西","England":"英格兰","France":"法国","Germany":"德国",
+  "Spain":"西班牙","Portugal":"葡萄牙","Netherlands":"荷兰","Belgium":"比利时","Croatia":"克罗地亚",
+  "Uruguay":"乌拉圭","Japan":"日本","South Korea":"韩国","Mexico":"墨西哥","United States":"美国",
+  "Canada":"加拿大","Morocco":"摩洛哥","Senegal":"塞内加尔","Iran":"伊朗","Egypt":"埃及",
+  "Switzerland":"瑞士","Austria":"奥地利","Norway":"挪威","Sweden":"瑞典","Turkey":"土耳其",
+  "Paraguay":"巴拉圭","Ecuador":"厄瓜多尔","Colombia":"哥伦比亚","Australia":"澳大利亚","New Zealand":"新西兰",
+  "Tunisia":"突尼斯","Algeria":"阿尔及利亚","Ivory Coast":"科特迪瓦","Ghana":"加纳","South Africa":"南非",
+  "Scotland":"苏格兰","Czech Republic":"捷克","Panama":"巴拿马","Qatar":"卡塔尔",
+  "Saudi Arabia":"沙特阿拉伯","Iraq":"伊拉克","Jordan":"约旦","Uzbekistan":"乌兹别克斯坦",
+  "DR Congo":"刚果(金)","Haiti":"海地","Curaçao":"库拉索","Cape Verde":"佛得角",
+  "Bosnia and Herzegovina":"波黑","Denmark":"丹麦","Poland":"波兰","Serbia":"塞尔维亚",
+  "Ukraine":"乌克兰","Greece":"希腊","Slovakia":"斯洛伐克","Slovenia":"斯洛文尼亚",
+  "Finland":"芬兰","Ireland":"爱尔兰","Hungary":"匈牙利","Romania":"罗马尼亚",
+  "Cameroon":"喀麦隆","Nigeria":"尼日利亚","Mali":"马里","Burkina Faso":"布基纳法索",
+  "Venezuela":"委内瑞拉","Chile":"智利","Peru":"秘鲁","Costa Rica":"哥斯达黎加","Jamaica":"牙买加",
+  "Italy":"意大利","Russia":"俄罗斯","Wales":"威尔士"
+};
+
+function getZhName(teamName) {
+  if (ZH_NAMES[teamName]) return ZH_NAMES[teamName];
+  for (const [k, v] of Object.entries(ZH_NAMES)) {
+    if (teamName.includes(k) || k.includes(teamName)) return v;
+  }
+  return teamName;
 }
 
 // ═══════════════════════════════════════════
@@ -853,11 +882,12 @@ function renderGroupStandings(groupName) {
   let rows = '';
   groupTeams.forEach((t, i) => {
     const flag = getFlag(t.name);
+    const zhName = getZhName(t.name);
     const rankClass = i < 2 ? 'q' + (i+1) : (i === 2 ? 'q3' : 'q4');
     const advClass = t.advance >= 0.7 ? 'pct-highlight' : (t.advance >= 0.4 ? 'pct-mid' : 'pct-low');
     rows += `<tr>
       <td><span class="rank-dot ${rankClass}"></span></td>
-      <td><span class="team-cell"><span class="gf">${flag}</span> ${t.name}</span></td>
+      <td><span class="team-cell"><span class="gf">${flag}</span> ${zhName}</span></td>
       <td>${t.avgPoints.toFixed(1)}</td>
       <td class="${advClass}">${fmtPct(t.advance)}</td>
     </tr>`;
@@ -893,8 +923,9 @@ function render() {
 
   if (bestMatch && total > 0) {
     const bestTeam = bestMatch.homeWin >= bestMatch.awayWin ? bestMatch.home : bestMatch.away;
+    const bestTeamZh = getZhName(bestTeam);
     const bestPct = fmtPct(bestMatch.favoriteProb);
-    statHot.textContent = '🔥 ' + bestTeam + ' ' + bestPct;
+    statHot.textContent = '🔥 ' + bestTeamZh + ' ' + bestPct;
   } else {
     statHot.textContent = '--';
   }
@@ -920,9 +951,10 @@ function render() {
     const topTeams = TEAMS.sort((a,b) => b.champion - a.champion).slice(0, 8);
     let topRows = '';
     topTeams.forEach((t, i) => {
+      const zhName = getZhName(t.name);
       topRows += `<tr>
         <td style="text-align:center;font-weight:700;color:var(--gold)">${i+1}</td>
-        <td><span class="team-cell"><span class="gf">${getFlag(t.name)}</span> ${t.name}</span></td>
+        <td><span class="team-cell"><span class="gf">${getFlag(t.name)}</span> ${zhName}</span></td>
         <td style="color:var(--text-secondary)">${t.group} 组</td>
         <td><span style="color:var(--green);font-weight:600">${fmtPct(t.champion)}</span></td>
       </tr>`;
@@ -964,16 +996,17 @@ function render() {
     for (const match of dayMatches) {
       const favoriteIsHome = match.homeWin >= match.awayWin;
       const favoriteName = favoriteIsHome ? match.home : match.away;
+      const favoriteZh = getZhName(favoriteName);
       const favoriteProb = match.favoriteProb;
       const homeFlag = getFlag(match.home);
       const awayFlag = getFlag(match.away);
+      const homeZh = getZhName(match.home);
+      const awayZh = getZhName(match.away);
 
-      // Determine home/away win display
       const homePct = fmtPct(match.homeWin);
       const drawPct = fmtPct(match.draw);
       const awayPct = fmtPct(match.awayWin);
 
-      // Missing features warning
       const missingTags = [];
       if (match.missingFeatures) {
         const mf = match.missingFeatures.split('|').filter(Boolean);
@@ -981,12 +1014,10 @@ function render() {
         if (mf.includes('marketValue')) missingTags.push('<span class="tag missing">缺身价</span>');
       }
 
-      // Venue tag
       const venueTag = match.neutral
         ? '<span class="tag neutral">🏟️ 中立</span>'
-        : '<span class="tag home-adv">🏠 ' + match.home + '主场</span>';
+        : '<span class="tag home-adv">🏠 ' + homeZh + '主场</span>';
 
-      // Notes
       const notesHtml = match.notes
         ? `<div class="match-notes">📌 ${match.notes}</div>`
         : '';
@@ -1004,7 +1035,8 @@ function render() {
         <div class="teams-row">
           <div class="team">
             <div class="team-flag">${homeFlag}</div>
-            <div class="team-name">${match.home}</div>
+            <div class="team-name">${homeZh}</div>
+            <div class="team-name-en">${match.home}</div>
           </div>
           <div class="vs-badge">
             <span class="vs-text">VS</span>
@@ -1012,7 +1044,8 @@ function render() {
           </div>
           <div class="team">
             <div class="team-flag">${awayFlag}</div>
-            <div class="team-name">${match.away}</div>
+            <div class="team-name">${awayZh}</div>
+            <div class="team-name-en">${match.away}</div>
           </div>
         </div>
 
@@ -1037,7 +1070,7 @@ function render() {
         <div class="match-footer">
           <span style="font-size:0.7rem">${getConfidenceEmoji(match.confidence)} ${getConfidenceLabel(match.confidence)}</span>
           <span style="font-size:0.7rem;color:var(--text-muted)">|</span>
-          <span style="font-size:0.7rem;color:var(--gold);font-weight:600">⭐ ${favoriteName} ${fmtPct(favoriteProb)}</span>
+          <span style="font-size:0.7rem;color:var(--gold);font-weight:600">⭐ ${favoriteZh} ${fmtPct(favoriteProb)}</span>
           ${venueTag}
           ${missingTags.join('')}
         </div>
