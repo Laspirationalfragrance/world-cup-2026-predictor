@@ -1,0 +1,192 @@
+{
+  "generatedAt": "2026-05-19T13:38:29.654Z",
+  "input": "data/processed/match-features.csv",
+  "since": "1990-01-01",
+  "trainUntil": "2021-12-31",
+  "rows": {
+    "total": 32140,
+    "train": 27719,
+    "validation": 4421
+  },
+  "best": {
+    "params": {
+      "eloCoef": 0.33452,
+      "formCoef": 0.041506,
+      "homeCoef": 0.416991,
+      "drawBias": 0.015795,
+      "drawEloPenalty": 0.073575,
+      "drawFormPenalty": 0.246207,
+      "drawNeutralBoost": -0.086286
+    },
+    "train": {
+      "logLoss": 0.899002,
+      "brierScore": 0.53038,
+      "accuracy": 0.584256,
+      "calibration": {
+        "count": 27719,
+        "homeRate": 0.4859,
+        "drawRate": 0.236,
+        "awayRate": 0.278,
+        "avgHomeProb": 0.4776,
+        "avgDrawProb": 0.2366,
+        "avgAwayProb": 0.2859
+      }
+    },
+    "validation": {
+      "logLoss": 0.880375,
+      "brierScore": 0.518066,
+      "accuracy": 0.59715,
+      "calibration": {
+        "count": 4421,
+        "homeRate": 0.475,
+        "drawRate": 0.2298,
+        "awayRate": 0.2952,
+        "avgHomeProb": 0.4869,
+        "avgDrawProb": 0.2225,
+        "avgAwayProb": 0.2906
+      }
+    }
+  },
+  "top10": [
+    {
+      "params": {
+        "eloCoef": 0.33452,
+        "formCoef": 0.041506,
+        "homeCoef": 0.416991,
+        "drawBias": 0.015795,
+        "drawEloPenalty": 0.073575,
+        "drawFormPenalty": 0.246207,
+        "drawNeutralBoost": -0.086286
+      },
+      "trainLogLoss": 0.899002,
+      "trainBrier": 0.53038,
+      "trainAccuracy": 0.584256
+    },
+    {
+      "params": {
+        "eloCoef": 0.342646,
+        "formCoef": 0.004726,
+        "homeCoef": 0.44241,
+        "drawBias": -0.017389,
+        "drawEloPenalty": 0.103601,
+        "drawFormPenalty": 0.072125,
+        "drawNeutralBoost": -0.123898
+      },
+      "trainLogLoss": 0.899012,
+      "trainBrier": 0.53034,
+      "trainAccuracy": 0.584761
+    },
+    {
+      "params": {
+        "eloCoef": 0.340898,
+        "formCoef": 0.006098,
+        "homeCoef": 0.419863,
+        "drawBias": 0.043354,
+        "drawEloPenalty": 0.033393,
+        "drawFormPenalty": 0.369219,
+        "drawNeutralBoost": -0.12279
+      },
+      "trainLogLoss": 0.89902,
+      "trainBrier": 0.530271,
+      "trainAccuracy": 0.584328
+    },
+    {
+      "params": {
+        "eloCoef": 0.331256,
+        "formCoef": 0.016199,
+        "homeCoef": 0.423929,
+        "drawBias": -0.001595,
+        "drawEloPenalty": 0.051543,
+        "drawFormPenalty": 0.107553,
+        "drawNeutralBoost": -0.138377
+      },
+      "trainLogLoss": 0.899039,
+      "trainBrier": 0.530225,
+      "trainAccuracy": 0.584292
+    },
+    {
+      "params": {
+        "eloCoef": 0.350102,
+        "formCoef": 0.005385,
+        "homeCoef": 0.444227,
+        "drawBias": -0.083426,
+        "drawEloPenalty": 0.055728,
+        "drawFormPenalty": 0.039202,
+        "drawNeutralBoost": -0.053929
+      },
+      "trainLogLoss": 0.899044,
+      "trainBrier": 0.530303,
+      "trainAccuracy": 0.584365
+    },
+    {
+      "params": {
+        "eloCoef": 0.318082,
+        "formCoef": 0.048588,
+        "homeCoef": 0.428796,
+        "drawBias": -0.036656,
+        "drawEloPenalty": 0.092103,
+        "drawFormPenalty": 0.10371,
+        "drawNeutralBoost": -0.133895
+      },
+      "trainLogLoss": 0.899066,
+      "trainBrier": 0.530297,
+      "trainAccuracy": 0.584112
+    },
+    {
+      "params": {
+        "eloCoef": 0.332395,
+        "formCoef": 0.020423,
+        "homeCoef": 0.417531,
+        "drawBias": 0.067825,
+        "drawEloPenalty": 0.091651,
+        "drawFormPenalty": 0.12374,
+        "drawNeutralBoost": -0.142656
+      },
+      "trainLogLoss": 0.899098,
+      "trainBrier": 0.530393,
+      "trainAccuracy": 0.584256
+    },
+    {
+      "params": {
+        "eloCoef": 0.338927,
+        "formCoef": 0.002515,
+        "homeCoef": 0.410746,
+        "drawBias": 0.068587,
+        "drawEloPenalty": 0.087613,
+        "drawFormPenalty": 0.138461,
+        "drawNeutralBoost": -0.135201
+      },
+      "trainLogLoss": 0.8991,
+      "trainBrier": 0.530424,
+      "trainAccuracy": 0.584797
+    },
+    {
+      "params": {
+        "eloCoef": 0.332257,
+        "formCoef": 0.053103,
+        "homeCoef": 0.425555,
+        "drawBias": -0.09143,
+        "drawEloPenalty": 0.010913,
+        "drawFormPenalty": 0.196852,
+        "drawNeutralBoost": -0.117579
+      },
+      "trainLogLoss": 0.899134,
+      "trainBrier": 0.530286,
+      "trainAccuracy": 0.583679
+    },
+    {
+      "params": {
+        "eloCoef": 0.313602,
+        "formCoef": 0.034401,
+        "homeCoef": 0.436626,
+        "drawBias": 0.007872,
+        "drawEloPenalty": 0.080307,
+        "drawFormPenalty": 0.202914,
+        "drawNeutralBoost": -0.117305
+      },
+      "trainLogLoss": 0.899145,
+      "trainBrier": 0.530283,
+      "trainAccuracy": 0.584328
+    }
+  ]
+}

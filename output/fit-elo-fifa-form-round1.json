@@ -1,0 +1,229 @@
+{
+  "generatedAt": "2026-05-19T13:02:45.323Z",
+  "input": "data/processed/match-features-fifa.csv",
+  "since": "1994-01-01",
+  "trainUntil": "2021-12-31",
+  "rows": {
+    "total": 29755,
+    "train": 25334,
+    "fitTrain": 5067,
+    "validation": 4421
+  },
+  "best": {
+    "params": {
+      "eloCoef": 0.335571,
+      "fifaCoef": 0.002611,
+      "formCoef": 0.017879,
+      "homeCoef": 0.426418,
+      "drawBias": -0.042849,
+      "drawEloPenalty": 0.076508,
+      "drawFifaPenalty": 0.000397,
+      "drawFormPenalty": 0.128115,
+      "drawNeutralBoost": -0.01726
+    },
+    "fitTrain": {
+      "logLoss": 0.88366,
+      "brierScore": 0.520488,
+      "accuracy": 0.591869,
+      "calibration": {
+        "count": 5067,
+        "homeRate": 0.4859,
+        "drawRate": 0.2335,
+        "awayRate": 0.2806,
+        "avgHomeProb": 0.4791,
+        "avgDrawProb": 0.2343,
+        "avgAwayProb": 0.2865
+      }
+    },
+    "train": {
+      "logLoss": 0.895842,
+      "brierScore": 0.528085,
+      "accuracy": 0.587235,
+      "calibration": {
+        "count": 25334,
+        "homeRate": 0.4865,
+        "drawRate": 0.2338,
+        "awayRate": 0.2797,
+        "avgHomeProb": 0.4814,
+        "avgDrawProb": 0.235,
+        "avgAwayProb": 0.2837
+      }
+    },
+    "validation": {
+      "logLoss": 0.879709,
+      "brierScore": 0.517718,
+      "accuracy": 0.598507,
+      "calibration": {
+        "count": 4421,
+        "homeRate": 0.475,
+        "drawRate": 0.2298,
+        "awayRate": 0.2952,
+        "avgHomeProb": 0.4886,
+        "avgDrawProb": 0.2228,
+        "avgAwayProb": 0.2886
+      }
+    }
+  },
+  "top10": [
+    {
+      "params": {
+        "eloCoef": 0.335571,
+        "fifaCoef": 0.002611,
+        "formCoef": 0.017879,
+        "homeCoef": 0.426418,
+        "drawBias": -0.042849,
+        "drawEloPenalty": 0.076508,
+        "drawFifaPenalty": 0.000397,
+        "drawFormPenalty": 0.128115,
+        "drawNeutralBoost": -0.01726
+      },
+      "fitLogLoss": 0.88366,
+      "fitBrier": 0.520488,
+      "fitAccuracy": 0.591869
+    },
+    {
+      "params": {
+        "eloCoef": 0.360074,
+        "fifaCoef": -0.001008,
+        "formCoef": 0.004183,
+        "homeCoef": 0.447354,
+        "drawBias": -0.020902,
+        "drawEloPenalty": 0.091908,
+        "drawFifaPenalty": 0.006504,
+        "drawFormPenalty": 0.091196,
+        "drawNeutralBoost": 0.006049
+      },
+      "fitLogLoss": 0.883795,
+      "fitBrier": 0.520692,
+      "fitAccuracy": 0.591672
+    },
+    {
+      "params": {
+        "eloCoef": 0.331963,
+        "fifaCoef": 0.010298,
+        "formCoef": 0.014424,
+        "homeCoef": 0.445281,
+        "drawBias": -0.070994,
+        "drawEloPenalty": 0.097502,
+        "drawFifaPenalty": 0.004566,
+        "drawFormPenalty": 0.014974,
+        "drawNeutralBoost": -0.051947
+      },
+      "fitLogLoss": 0.883921,
+      "fitBrier": 0.520625,
+      "fitAccuracy": 0.593053
+    },
+    {
+      "params": {
+        "eloCoef": 0.34712,
+        "fifaCoef": 0.011095,
+        "formCoef": 0.018006,
+        "homeCoef": 0.41473,
+        "drawBias": -0.042085,
+        "drawEloPenalty": 0.072686,
+        "drawFifaPenalty": 0.003816,
+        "drawFormPenalty": 0.100604,
+        "drawNeutralBoost": 0.022945
+      },
+      "fitLogLoss": 0.883975,
+      "fitBrier": 0.520759,
+      "fitAccuracy": 0.592658
+    },
+    {
+      "params": {
+        "eloCoef": 0.340963,
+        "fifaCoef": 0.00667,
+        "formCoef": 0.005773,
+        "homeCoef": 0.448139,
+        "drawBias": -0.018665,
+        "drawEloPenalty": 0.081072,
+        "drawFifaPenalty": 0.016319,
+        "drawFormPenalty": 0.08802,
+        "drawNeutralBoost": -0.009111
+      },
+      "fitLogLoss": 0.883999,
+      "fitBrier": 0.520719,
+      "fitAccuracy": 0.593843
+    },
+    {
+      "params": {
+        "eloCoef": 0.349282,
+        "fifaCoef": 0.000822,
+        "formCoef": 0.055134,
+        "homeCoef": 0.419093,
+        "drawBias": -0.025727,
+        "drawEloPenalty": 0.085122,
+        "drawFifaPenalty": 0.005752,
+        "drawFormPenalty": 0.069172,
+        "drawNeutralBoost": -0.02334
+      },
+      "fitLogLoss": 0.884004,
+      "fitBrier": 0.520789,
+      "fitAccuracy": 0.591474
+    },
+    {
+      "params": {
+        "eloCoef": 0.352614,
+        "fifaCoef": 0.003108,
+        "formCoef": 0.014173,
+        "homeCoef": 0.397809,
+        "drawBias": -0.06153,
+        "drawEloPenalty": 0.100958,
+        "drawFifaPenalty": 0.004567,
+        "drawFormPenalty": 0.005561,
+        "drawNeutralBoost": -0.037683
+      },
+      "fitLogLoss": 0.884006,
+      "fitBrier": 0.520865,
+      "fitAccuracy": 0.592264
+    },
+    {
+      "params": {
+        "eloCoef": 0.336662,
+        "fifaCoef": 0.012198,
+        "formCoef": 0.016032,
+        "homeCoef": 0.388696,
+        "drawBias": -0.057404,
+        "drawEloPenalty": 0.091262,
+        "drawFifaPenalty": 0.003292,
+        "drawFormPenalty": 0.0384,
+        "drawNeutralBoost": -0.03124
+      },
+      "fitLogLoss": 0.884022,
+      "fitBrier": 0.520788,
+      "fitAccuracy": 0.592856
+    },
+    {
+      "params": {
+        "eloCoef": 0.359982,
+        "fifaCoef": -0.010212,
+        "formCoef": 0.015389,
+        "homeCoef": 0.443769,
+        "drawBias": -0.05559,
+        "drawEloPenalty": 0.082903,
+        "drawFifaPenalty": 0.019386,
+        "drawFormPenalty": 0.026249,
+        "drawNeutralBoost": -0.050212
+      },
+      "fitLogLoss": 0.884062,
+      "fitBrier": 0.520838,
+      "fitAccuracy": 0.592856
+    },
+    {
+      "params": {
+        "eloCoef": 0.36218,
+        "fifaCoef": -0.005239,
+        "formCoef": 0.010873,
+        "homeCoef": 0.42017,
+        "drawBias": -0.057474,
+        "drawEloPenalty": 0.079064,
+        "drawFifaPenalty": 0.01653,
+        "drawFormPenalty": 0.104365,
+        "drawNeutralBoost": -0.004787
+      },
+      "fitLogLoss": 0.884094,
+      "fitBrier": 0.520937,
+      "fitAccuracy": 0.592461
+    }
+  ]
+}

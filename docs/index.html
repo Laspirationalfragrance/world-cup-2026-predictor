@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="description" content="2026 FIFA World Cup Match Predictions — AI-powered probability model">
+<title>⚽ 2026 世界杯预测</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e1a;
+  --bg-card: #111627;
+  --bg-card-hover: #181e33;
+  --border: #1e2640;
+  --border-active: #2a3355;
+  --text: #e8eaf0;
+  --text-secondary: #8891a5;
+  --text-muted: #5a6380;
+  --accent: #c8102e;
+  --accent-glow: rgba(200,16,46,0.3);
+  --gold: #f0b90b;
+  --gold-glow: rgba(240,185,11,0.25);
+  --green: #00c853;
+  --green-bg: rgba(0,200,83,0.12);
+  --yellow: #f59e0b;
+  --yellow-bg: rgba(245,158,11,0.12);
+  --red: #ef4444;
+  --red-bg: rgba(239,68,68,0.12);
+  --blue-accent: #3b82f6;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.3);
+  --font-display: 'Oswald', 'Impact', sans-serif;
+  --font-body: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+  --safe-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: 100dvh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(200,16,46,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(240,185,11,0.04) 0%, transparent 50%);
+}
+
+/* ── Header ── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,14,26,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+}
+
+.header-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #e81e3f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 12px var(--accent-glow);
+}
+
+.logo-year {
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+}
+
+/* ── Date Selector ── */
+.date-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.date-selector:hover, .date-selector:focus-within {
+  border-color: var(--border-active);
+}
+
+.date-selector-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.date-selector select {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 4px;
+}
+
+.date-selector select option {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
+.date-nav {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.date-nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.date-nav-btn:active {
+  background: var(--border-active);
+  transform: scale(0.95);
+}
+
+.date-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Stats Bar ── */
+.stats-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.stats-bar::-webkit-scrollbar { display: none; }
+
+.stat-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.stat-chip.matches { background: rgba(59,130,246,0.15); color: #60a5fa; }
+.stat-chip.high-conf { background: var(--green-bg); color: var(--green); }
+.stat-chip.upset { background: var(--red-bg); color: var(--red); }
+.stat-chip.hot { background: var(--yellow-bg); color: var(--yellow); }
+
+/* ── Main Content ── */
+.main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-bottom: calc(80px + var(--safe-bottom));
+}
+
+/* ── Date Section ── */
+.date-section {
+  margin-bottom: 24px;
+}
+
+.date-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.date-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.date-label .day {
+  color: var(--gold);
+}
+
+.date-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border-active), transparent);
+}
+
+/* ── Match Card ── */
+.match-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.match-card:active {
+  transform: scale(0.985);
+  background: var(--bg-card-hover);
+}
+
+.match-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 3px 0 0 3px;
+}
+
+.match-card.confidence-high::before { background: var(--green); }
+.match-card.confidence-medium::before { background: var(--yellow); }
+.match-card.confidence-low::before { background: var(--red); }
+
+.match-card.upset-high { border-color: rgba(239,68,68,0.3); }
+.match-card.upset-high::after {
+  content: '⚠️ 爆冷风险';
+  position: absolute;
+  top: 8px; right: 10px;
+  font-size: 0.65rem;
+  color: var(--red);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+/* ── Card Header ── */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.group-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: rgba(240,185,11,0.12);
+  color: var(--gold);
+  border: 1px solid rgba(240,185,11,0.2);
+}
+
+.match-num {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ── Teams ── */
+.teams-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.team {
+  text-align: center;
+}
+
+.team-flag {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.team-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.team-name-en {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.vs-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.vs-text {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.vs-score {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+/* ── Probability Bars ── */
+.prob-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.prob-item {
+  text-align: center;
+}
+
+.prob-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 3px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.prob-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.prob-value.win { color: var(--green); }
+.prob-value.draw { color: var(--text-secondary); }
+.prob-value.lose { color: var(--red); }
+
+.prob-bar-track {
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.prob-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.prob-bar-fill.win { background: var(--green); }
+.prob-bar-fill.draw { background: var(--text-secondary); }
+.prob-bar-fill.lose { background: var(--red); }
+
+/* ── Match Footer ── */
+.match-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.match-footer .tag {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.65rem;
+}
+
+.tag.stadium { background: rgba(139,92,246,0.12); color: #a78bfa; }
+.tag.neutral { background: rgba(100,116,139,0.12); color: #94a3b8; }
+.tag.home-adv { background: rgba(59,130,246,0.12); color: #60a5fa; }
+.tag.missing { background: rgba(239,68,68,0.1); color: #f87171; }
+
+/* ── Group Standings ── */
+.group-standings {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.group-standings-header {
+  padding: 10px 14px;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  background: rgba(240,185,11,0.06);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.group-standings-header .chevron {
+  transition: transform 0.2s;
+  font-size: 0.7rem;
+}
+
+.group-standings.collapsed .group-table-wrap { display: none; }
+.group-standings.collapsed .chevron { transform: rotate(-90deg); }
+
+.group-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.group-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+}
+
+.group-table th {
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.group-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.group-table tr:last-child td { border-bottom: none; }
+
+.group-table .team-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.group-table .team-cell .gf { font-size: 1rem; flex-shrink: 0; }
+.group-table .rank-dot {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+}
+
+.group-table .rank-dot.q1 { background: var(--green); box-shadow: 0 0 6px rgba(0,200,83,0.5); }
+.group-table .rank-dot.q2 { background: var(--green); box-shadow: 0 0 6px rgba(0,200,83,0.5); }
+.group-table .rank-dot.q3 { background: var(--yellow); }
+.group-table .rank-dot.q4 { background: var(--red); }
+
+.pct-highlight { color: var(--green); font-weight: 700; }
+.pct-mid { color: var(--yellow); }
+.pct-low { color: var(--red); }
+
+/* ── Match Notes ── */
+.match-notes {
+  margin-top: 10px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.02);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  border-left: 2px solid var(--border-active);
+}
+
+/* ── Empty State ── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state-icon { font-size: 3rem; margin-bottom: 12px; }
+
+.empty-state-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 24px 16px;
+  padding-bottom: calc(24px + var(--safe-bottom));
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.footer a { color: var(--text-secondary); }
+
+.footer-disclaimer {
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: rgba(239,68,68,0.06);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(239,68,68,0.12);
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
+/* ── Loading ── */
+.loading-shimmer {
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius);
+  height: 200px;
+  margin-bottom: 12px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Responsive ── */
+@media (min-width: 640px) {
+  .teams-row { gap: 20px; }
+  .team-flag { font-size: 2.5rem; }
+  .team-name { font-size: 0.95rem; }
+  .vs-score { font-size: 1.8rem; }
+}
+
+@media (max-width: 360px) {
+  .header { padding: 10px 12px; }
+  .main { padding: 12px; }
+  .match-card { padding: 12px; }
+  .team-flag { font-size: 1.6rem; }
+  .team-name { font-size: 0.75rem; }
+  .prob-value { font-size: 1rem; }
+  .logo { font-size: 1.1rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo">
+        <div class="logo-icon">⚽</div>
+        <div>
+          <div>World Cup</div>
+          <div class="logo-year">Predictor 2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="date-selector" id="dateSelector" role="button" tabindex="0" aria-label="选择日期">
+      <span class="date-selector-icon">📅</span>
+      <select id="dateSelect" aria-label="比赛日期">
+        <option value="all">📋 全部比赛</option>
+      </select>
+      <div class="date-nav">
+        <button class="date-nav-btn" id="prevDate" aria-label="上一天" disabled>◀</button>
+        <button class="date-nav-btn" id="nextDate" aria-label="下一天">▶</button>
+      </div>
+    </div>
+    <div class="stats-bar" id="statsBar">
+      <span class="stat-chip matches" id="statMatches">-- 场</span>
+      <span class="stat-chip high-conf" id="statHigh">-- 高置信</span>
+      <span class="stat-chip upset" id="statUpset">-- 高风险</span>
+      <span class="stat-chip hot" id="statHot">🔥 --</span>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="main" id="mainContent">
+  <div class="loading-shimmer"></div>
+  <div class="loading-shimmer"></div>
+  <div class="loading-shimmer"></div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>数据来源：Elo评级 · FIFA排名 · 近期状态 · 球队身价 · 阵容评分</p>
+  <p>模型版本：elo-fifa-tendency-robust-modern-2026-05-20 · 20,000次蒙特卡洛模拟</p>
+  <div class="footer-disclaimer">
+    ⚠️ 所有预测基于统计模型，足球比赛受临场状态、裁判、红牌、偶然性影响极大。概率≠确定性，65%胜率意味着仍有35%概率不胜。本页面仅供娱乐参考，不构成投注建议。
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+// ═══════════════════════════════════════════
+//  DATA loaded from data.js (MATCHES, TEAMS)
+// ═══════════════════════════════════════════
+
+// ═══════════════════════════════════════════
+//  FLAG EMOJI MAPPING
+// ═══════════════════════════════════════════
+const FLAGS = {
+  "Argentina":"🇦🇷","Brazil":"🇧🇷","England":"🏴","France":"🇫🇷","Germany":"🇩🇪",
+  "Spain":"🇪🇸","Portugal":"🇵🇹","Netherlands":"🇳🇱","Belgium":"🇧🇪","Croatia":"🇭🇷",
+  "Uruguay":"🇺🇾","Japan":"🇯🇵","South Korea":"🇰🇷","Mexico":"🇲🇽","United States":"🇺🇸",
+  "Canada":"🇨🇦","Morocco":"🇲🇦","Senegal":"🇸🇳","Iran":"🇮🇷","Egypt":"🇪🇬",
+  "Switzerland":"🇨🇭","Austria":"🇦🇹","Norway":"🇳🇴","Sweden":"🇸🇪","Turkey":"🇹🇷",
+  "Paraguay":"🇵🇾","Ecuador":"🇪🇨","Colombia":"🇨🇴","Australia":"🇦🇺","New Zealand":"🇳🇿",
+  "Tunisia":"🇹🇳","Algeria":"🇩🇿","Ivory Coast":"🇨🇮","Ghana":"🇬🇭","South Africa":"🇿🇦",
+  "Scotland":"🏴","Wales":"🏴","Czech Republic":"🇨🇿",
+  "Panama":"🇵🇦","Qatar":"🇶🇦","Saudi Arabia":"🇸🇦","Iraq":"🇮🇶","Jordan":"🇯🇴",
+  "Uzbekistan":"🇺🇿","DR Congo":"🇨🇩","Haiti":"🇭🇹","Curaçao":"🇨🇼","Cape Verde":"🇨🇻",
+  "Bosnia and Herzegovina":"🇧🇦","Serbia":"🇷🇸","Denmark":"🇩🇰","Poland":"🇵🇱",
+  "Ukraine":"🇺🇦","Greece":"🇬🇷","Slovakia":"🇸🇰","Slovenia":"🇸🇮",
+  "Finland":"🇫🇮","Ireland":"🇮🇪","Hungary":"🇭🇺","Romania":"🇷🇴",
+  "Cameroon":"🇨🇲","Nigeria":"🇳🇬","Mali":"🇲🇱","Burkina Faso":"🇧🇫",
+  "Venezuela":"🇻🇪","Chile":"🇨🇱","Peru":"🇵🇪","Costa Rica":"🇨🇷","Jamaica":"🇯🇲",
+  "Italy":"🇮🇹","Russia":"🇷🇺"
+};
+
+function getFlag(teamName) {
+  if (FLAGS[teamName]) return FLAGS[teamName];
+  // Try partial match
+  for (const [k, v] of Object.entries(FLAGS)) {
+    if (teamName.includes(k) || k.includes(teamName)) return v;
+  }
+  return "🏳️";
+}
+
+// ═══════════════════════════════════════════
+//  UNIQUE DATES
+// ═══════════════════════════════════════════
+const DATES = [...new Set(MATCHES.map(m => m.date))].sort();
+
+// ═══════════════════════════════════════════
+//  DOM REFS
+// ═══════════════════════════════════════════
+const dateSelect = document.getElementById('dateSelect');
+const prevBtn = document.getElementById('prevDate');
+const nextBtn = document.getElementById('nextDate');
+const mainContent = document.getElementById('mainContent');
+const statMatches = document.getElementById('statMatches');
+const statHigh = document.getElementById('statHigh');
+const statUpset = document.getElementById('statUpset');
+const statHot = document.getElementById('statHot');
+
+// ═══════════════════════════════════════════
+//  INIT DATE SELECTOR
+// ═══════════════════════════════════════════
+DATES.forEach(d => {
+  const opt = document.createElement('option');
+  opt.value = d;
+  const dt = new Date(d + 'T00:00:00');
+  const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+  const dayName = dayNames[dt.getDay()];
+  const [y, m, day] = d.split('-');
+  opt.textContent = `${d} ${dayName} (${parseInt(m)}月${parseInt(day)}日)`;
+  dateSelect.appendChild(opt);
+});
+
+// ═══════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════
+let currentDateIndex = -1; // -1 = all
+
+function getSelectedDate() {
+  return dateSelect.value === 'all' ? null : dateSelect.value;
+}
+
+function updateNavButtons() {
+  if (dateSelect.value === 'all') {
+    prevBtn.disabled = true;
+    nextBtn.disabled = true;
+    currentDateIndex = -1;
+    return;
+  }
+  currentDateIndex = DATES.indexOf(dateSelect.value);
+  prevBtn.disabled = currentDateIndex <= 0;
+  nextBtn.disabled = currentDateIndex >= DATES.length - 1;
+}
+
+dateSelect.addEventListener('change', () => {
+  updateNavButtons();
+  render();
+});
+
+prevBtn.addEventListener('click', () => {
+  if (currentDateIndex > 0) {
+    dateSelect.value = DATES[currentDateIndex - 1];
+    updateNavButtons();
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (currentDateIndex < DATES.length - 1) {
+    dateSelect.value = DATES[currentDateIndex + 1];
+    updateNavButtons();
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+// ═══════════════════════════════════════════
+//  SWIPE NAVIGATION
+// ═══════════════════════════════════════════
+let touchStartX = 0;
+mainContent.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+
+mainContent.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 80 && dateSelect.value !== 'all') {
+    if (dx > 0 && currentDateIndex > 0) {
+      dateSelect.value = DATES[currentDateIndex - 1];
+      updateNavButtons();
+      render();
+    } else if (dx < 0 && currentDateIndex < DATES.length - 1) {
+      dateSelect.value = DATES[currentDateIndex + 1];
+      updateNavButtons();
+      render();
+    }
+  }
+});
+
+// ═══════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════
+function getConfidenceEmoji(level) {
+  if (level === 'high') return '🟢';
+  if (level === 'medium') return '🟡';
+  return '🔴';
+}
+
+function getConfidenceLabel(level) {
+  if (level === 'high') return '高置信度';
+  if (level === 'medium') return '中置信度';
+  return '低置信度';
+}
+
+function getConfidenceClass(level) {
+  return 'confidence-' + (level || 'medium');
+}
+
+function fmtPct(v) { return (v * 100).toFixed(1) + '%'; }
+
+function getGroupsForDate(date) {
+  const groups = new Set();
+  MATCHES.filter(m => m.date === date).forEach(m => groups.add(m.group));
+  return [...groups].sort();
+}
+
+function renderGroupStandings(groupName) {
+  const groupTeams = TEAMS.filter(t => t.group === groupName);
+  if (groupTeams.length === 0) return '';
+  // Sort by avgPoints descending
+  groupTeams.sort((a, b) => b.avgPoints - a.avgPoints);
+
+  let rows = '';
+  groupTeams.forEach((t, i) => {
+    const flag = getFlag(t.name);
+    const rankClass = i < 2 ? 'q' + (i+1) : (i === 2 ? 'q3' : 'q4');
+    const advClass = t.advance >= 0.7 ? 'pct-highlight' : (t.advance >= 0.4 ? 'pct-mid' : 'pct-low');
+    rows += `<tr>
+      <td><span class="rank-dot ${rankClass}"></span></td>
+      <td><span class="team-cell"><span class="gf">${flag}</span> ${t.name}</span></td>
+      <td>${t.avgPoints.toFixed(1)}</td>
+      <td class="${advClass}">${fmtPct(t.advance)}</td>
+    </tr>`;
+  });
+
+  return `<div class="group-standings" onclick="this.classList.toggle('collapsed')">
+    <div class="group-standings-header">
+      <span>📊 ${groupName} 组 · 晋级概率</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="group-table-wrap">
+      <table class="group-table">
+        <thead><tr><th></th><th>球队</th><th>预估分</th><th>晋级率</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+function render() {
+  const selDate = getSelectedDate();
+  let filtered = selDate ? MATCHES.filter(m => m.date === selDate) : MATCHES;
+
+  // Stats
+  const total = filtered.length;
+  const highConf = filtered.filter(m => m.confidence === 'high').length;
+  const upsetHigh = filtered.filter(m => m.upsetRisk === 'high').length;
+  const bestMatch = [...filtered].sort((a,b) => b.favoriteProb - a.favoriteProb)[0];
+
+  statMatches.textContent = total + ' 场比赛';
+  statHigh.textContent = highConf + ' 高置信';
+  statUpset.textContent = upsetHigh + ' 高风险';
+
+  if (bestMatch && total > 0) {
+    const bestTeam = bestMatch.homeWin >= bestMatch.awayWin ? bestMatch.home : bestMatch.away;
+    const bestPct = fmtPct(bestMatch.favoriteProb);
+    statHot.textContent = '🔥 ' + bestTeam + ' ' + bestPct;
+  } else {
+    statHot.textContent = '--';
+  }
+
+  // Group matches by date
+  const grouped = {};
+  filtered.forEach(m => {
+    if (!grouped[m.date]) grouped[m.date] = [];
+    grouped[m.date].push(m);
+  });
+
+  let html = '';
+
+  if (filtered.length === 0) {
+    html = `<div class="empty-state">
+      <div class="empty-state-icon">📭</div>
+      <div class="empty-state-text">该日期暂无比赛数据</div>
+    </div>`;
+  }
+
+  // Tournament overview when viewing all matches
+  if (!selDate) {
+    const topTeams = TEAMS.sort((a,b) => b.champion - a.champion).slice(0, 8);
+    let topRows = '';
+    topTeams.forEach((t, i) => {
+      topRows += `<tr>
+        <td style="text-align:center;font-weight:700;color:var(--gold)">${i+1}</td>
+        <td><span class="team-cell"><span class="gf">${getFlag(t.name)}</span> ${t.name}</span></td>
+        <td style="color:var(--text-secondary)">${t.group} 组</td>
+        <td><span style="color:var(--green);font-weight:600">${fmtPct(t.champion)}</span></td>
+      </tr>`;
+    });
+
+    html += `<div class="group-standings">
+      <div class="group-standings-header" onclick="this.parentElement.classList.toggle('collapsed')">
+        <span>🏆 夺冠概率 TOP 8</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="group-table-wrap">
+        <table class="group-table">
+          <thead><tr><th>#</th><th>球队</th><th>小组</th><th>冠军概率</th></tr></thead>
+          <tbody>${topRows}</tbody>
+        </table>
+      </div>
+    </div>`;
+  }
+
+  for (const [date, dayMatches] of Object.entries(grouped).sort()) {
+    const dt = new Date(date + 'T00:00:00');
+    const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+    const dayName = dayNames[dt.getDay()];
+    const [y, m, d] = date.split('-');
+
+    html += `<section class="date-section">
+      <div class="date-heading">
+        <span class="date-label"><span class="day">${parseInt(m)}月${parseInt(d)}日</span> · ${dayName}</span>
+        <span style="font-size:0.75rem;color:var(--text-muted)">${dayMatches.length} 场比赛</span>
+        <div class="date-divider"></div>
+      </div>`;
+
+    // Show group standings for the groups playing on this date
+    if (selDate) {
+      const groups = getGroupsForDate(selDate);
+      groups.forEach(g => { html += renderGroupStandings(g); });
+    }
+
+    for (const match of dayMatches) {
+      const favoriteIsHome = match.homeWin >= match.awayWin;
+      const favoriteName = favoriteIsHome ? match.home : match.away;
+      const favoriteProb = match.favoriteProb;
+      const homeFlag = getFlag(match.home);
+      const awayFlag = getFlag(match.away);
+
+      // Determine home/away win display
+      const homePct = fmtPct(match.homeWin);
+      const drawPct = fmtPct(match.draw);
+      const awayPct = fmtPct(match.awayWin);
+
+      // Missing features warning
+      const missingTags = [];
+      if (match.missingFeatures) {
+        const mf = match.missingFeatures.split('|').filter(Boolean);
+        if (mf.includes('odds')) missingTags.push('<span class="tag missing">缺赔率</span>');
+        if (mf.includes('marketValue')) missingTags.push('<span class="tag missing">缺身价</span>');
+      }
+
+      // Venue tag
+      const venueTag = match.neutral
+        ? '<span class="tag neutral">🏟️ 中立</span>'
+        : '<span class="tag home-adv">🏠 ' + match.home + '主场</span>';
+
+      // Notes
+      const notesHtml = match.notes
+        ? `<div class="match-notes">📌 ${match.notes}</div>`
+        : '';
+
+      const confClass = getConfidenceClass(match.confidence);
+      const upsetClass = match.upsetRisk === 'high' ? ' upset-high' : '';
+
+      html += `
+      <div class="match-card ${confClass}${upsetClass}">
+        <div class="card-header">
+          <span class="group-badge">${match.group} 组</span>
+          <span class="match-num">#${match.num} · ${match.stadium || match.city}</span>
+        </div>
+
+        <div class="teams-row">
+          <div class="team">
+            <div class="team-flag">${homeFlag}</div>
+            <div class="team-name">${match.home}</div>
+          </div>
+          <div class="vs-badge">
+            <span class="vs-text">VS</span>
+            <span class="vs-score">${match.score}</span>
+          </div>
+          <div class="team">
+            <div class="team-flag">${awayFlag}</div>
+            <div class="team-name">${match.away}</div>
+          </div>
+        </div>
+
+        <div class="prob-section">
+          <div class="prob-item">
+            <div class="prob-label">主胜</div>
+            <div class="prob-value win">${homePct}</div>
+            <div class="prob-bar-track"><div class="prob-bar-fill win" style="width:${match.homeWin*100}%"></div></div>
+          </div>
+          <div class="prob-item">
+            <div class="prob-label">平局</div>
+            <div class="prob-value draw">${drawPct}</div>
+            <div class="prob-bar-track"><div class="prob-bar-fill draw" style="width:${match.draw*100}%"></div></div>
+          </div>
+          <div class="prob-item">
+            <div class="prob-label">客胜</div>
+            <div class="prob-value lose">${awayPct}</div>
+            <div class="prob-bar-track"><div class="prob-bar-fill lose" style="width:${match.awayWin*100}%"></div></div>
+          </div>
+        </div>
+
+        <div class="match-footer">
+          <span style="font-size:0.7rem">${getConfidenceEmoji(match.confidence)} ${getConfidenceLabel(match.confidence)}</span>
+          <span style="font-size:0.7rem;color:var(--text-muted)">|</span>
+          <span style="font-size:0.7rem;color:var(--gold);font-weight:600">⭐ ${favoriteName} ${fmtPct(favoriteProb)}</span>
+          ${venueTag}
+          ${missingTags.join('')}
+        </div>
+        ${notesHtml}
+      </div>`;
+    }
+
+    html += `</section>`;
+  }
+
+  mainContent.innerHTML = html;
+  updateNavButtons();
+}
+
+// ═══════════════════════════════════════════
+//  INITIAL RENDER
+// ═══════════════════════════════════════════
+// Default to today (2026-06-25) if in dates, else show all
+if (DATES.includes('2026-06-25')) {
+  dateSelect.value = '2026-06-25';
+} else {
+  dateSelect.value = 'all';
+}
+updateNavButtons();
+render();
+
+// ═══════════════════════════════════════════
+//  URL PARAM SUPPORT
+// ═══════════════════════════════════════════
+const urlParams = new URLSearchParams(window.location.search);
+const dateParam = urlParams.get('date');
+if (dateParam && DATES.includes(dateParam)) {
+  dateSelect.value = dateParam;
+  updateNavButtons();
+  render();
+}
+</script>
+</body>
+</html>
