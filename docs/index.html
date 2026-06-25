@@ -303,6 +303,52 @@ body {
   opacity: 0.85;
 }
 
+/* ── Past Match (Result) Card ── */
+.match-card.past {
+  opacity: 0.75;
+  border-color: rgba(255,255,255,0.04);
+}
+
+.match-card.past::before { background: var(--text-muted); }
+
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: rgba(100,116,139,0.15);
+  color: var(--text-secondary);
+  border: 1px solid rgba(100,116,139,0.2);
+}
+
+.result-final {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.result-winner {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.result-summary {
+  margin-top: 10px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.02);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  border-left: 2px solid var(--text-muted);
+}
+
 /* ── Card Header ── */
 .card-header {
   display: flex;
@@ -647,15 +693,11 @@ body {
         </div>
       </div>
     </div>
-    <div class="date-selector" id="dateSelector" role="button" tabindex="0" aria-label="选择日期">
+    <div class="date-selector" id="dateSelector">
       <span class="date-selector-icon">📅</span>
-      <select id="dateSelect" aria-label="比赛日期">
+      <select id="dateSelect" aria-label="选择比赛日期" style="font-size:1rem;padding:4px 0">
         <option value="all">📋 全部比赛</option>
       </select>
-      <div class="date-nav">
-        <button class="date-nav-btn" id="prevDate" aria-label="上一天" disabled>◀</button>
-        <button class="date-nav-btn" id="nextDate" aria-label="下一天">▶</button>
-      </div>
     </div>
     <div class="stats-bar" id="statsBar">
       <span class="stat-chip matches" id="statMatches">-- 场</span>
@@ -749,16 +791,32 @@ function getZhName(teamName) {
 }
 
 // ═══════════════════════════════════════════
-//  UNIQUE DATES
+//  DATE HELPERS (China timezone = match local +1 day)
 // ═══════════════════════════════════════════
-const DATES = [...new Set(MATCHES.map(m => m.date))].sort();
+function toChinaDate(usDateStr) {
+  const d = new Date(usDateStr + 'T12:00:00');
+  d.setDate(d.getDate() + 1);
+  return d.toISOString().split('T')[0];
+}
+
+function formatDateLabel(dateStr) {
+  const dt = new Date(dateStr + 'T00:00:00');
+  const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+  const dayName = dayNames[dt.getDay()];
+  const [y, m, d] = dateStr.split('-');
+  return `${parseInt(m)}月${parseInt(d)}日 · ${dayName}`;
+}
+
+// ═══════════════════════════════════════════
+//  UNIQUE DATES (display: China timezone)
+// ═══════════════════════════════════════════
+const US_DATES = [...new Set(MATCHES.map(m => m.date))].sort();
+const DATES = [...new Set(US_DATES.map(toChinaDate))].sort();
 
 // ═══════════════════════════════════════════
 //  DOM REFS
 // ═══════════════════════════════════════════
 const dateSelect = document.getElementById('dateSelect');
-const prevBtn = document.getElementById('prevDate');
-const nextBtn = document.getElementById('nextDate');
 const mainContent = document.getElementById('mainContent');
 const statMatches = document.getElementById('statMatches');
 const statHigh = document.getElementById('statHigh');
@@ -782,68 +840,13 @@ DATES.forEach(d => {
 // ═══════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════
-let currentDateIndex = -1; // -1 = all
-
 function getSelectedDate() {
   return dateSelect.value === 'all' ? null : dateSelect.value;
 }
 
-function updateNavButtons() {
-  if (dateSelect.value === 'all') {
-    prevBtn.disabled = true;
-    nextBtn.disabled = true;
-    currentDateIndex = -1;
-    return;
-  }
-  currentDateIndex = DATES.indexOf(dateSelect.value);
-  prevBtn.disabled = currentDateIndex <= 0;
-  nextBtn.disabled = currentDateIndex >= DATES.length - 1;
-}
-
 dateSelect.addEventListener('change', () => {
-  updateNavButtons();
   render();
-});
-
-prevBtn.addEventListener('click', () => {
-  if (currentDateIndex > 0) {
-    dateSelect.value = DATES[currentDateIndex - 1];
-    updateNavButtons();
-    render();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-});
-
-nextBtn.addEventListener('click', () => {
-  if (currentDateIndex < DATES.length - 1) {
-    dateSelect.value = DATES[currentDateIndex + 1];
-    updateNavButtons();
-    render();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-});
-
-// ═══════════════════════════════════════════
-//  SWIPE NAVIGATION
-// ═══════════════════════════════════════════
-let touchStartX = 0;
-mainContent.addEventListener('touchstart', e => {
-  touchStartX = e.touches[0].clientX;
-}, { passive: true });
-
-mainContent.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(dx) > 80 && dateSelect.value !== 'all') {
-    if (dx > 0 && currentDateIndex > 0) {
-      dateSelect.value = DATES[currentDateIndex - 1];
-      updateNavButtons();
-      render();
-    } else if (dx < 0 && currentDateIndex < DATES.length - 1) {
-      dateSelect.value = DATES[currentDateIndex + 1];
-      updateNavButtons();
-      render();
-    }
-  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 // ═══════════════════════════════════════════
@@ -866,6 +869,21 @@ function getConfidenceClass(level) {
 }
 
 function fmtPct(v) { return (v * 100).toFixed(1) + '%'; }
+
+// Today's cutoff (US date). Matches before this date = past results.
+const TODAY_US = '2026-06-25';
+
+function isPastMatch(usDate) {
+  return usDate < TODAY_US;
+}
+
+function simulateResult(match) {
+  // "Simulate" result from prediction: favorite wins with predicted score
+  const maxProb = Math.max(match.homeWin, match.draw, match.awayWin);
+  if (match.homeWin === maxProb) return 'home';
+  if (match.awayWin === maxProb) return 'away';
+  return 'draw';
+}
 
 function getGroupsForDate(date) {
   const groups = new Set();
@@ -909,7 +927,16 @@ function renderGroupStandings(groupName) {
 
 function render() {
   const selDate = getSelectedDate();
-  let filtered = selDate ? MATCHES.filter(m => m.date === selDate) : MATCHES;
+  // Convert China date back to US date for filtering
+  let filtered;
+  if (selDate) {
+    const usDate = new Date(selDate + 'T12:00:00');
+    usDate.setDate(usDate.getDate() - 1);
+    const usDateStr = usDate.toISOString().split('T')[0];
+    filtered = MATCHES.filter(m => m.date === usDateStr);
+  } else {
+    filtered = MATCHES;
+  }
 
   // Stats
   const total = filtered.length;
@@ -975,15 +1002,16 @@ function render() {
   }
 
   for (const [date, dayMatches] of Object.entries(grouped).sort()) {
-    const dt = new Date(date + 'T00:00:00');
+    const chinaDate = toChinaDate(date);
+    const dt = new Date(chinaDate + 'T00:00:00');
     const dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
     const dayName = dayNames[dt.getDay()];
-    const [y, m, d] = date.split('-');
+    const [y, m, d] = chinaDate.split('-');
 
     html += `<section class="date-section">
       <div class="date-heading">
         <span class="date-label"><span class="day">${parseInt(m)}月${parseInt(d)}日</span> · ${dayName}</span>
-        <span style="font-size:0.75rem;color:var(--text-muted)">${dayMatches.length} 场比赛</span>
+        <span style="font-size:0.75rem;color:var(--text-muted)">${dayMatches.length} 场比赛 · 🇨🇳 北京时间</span>
         <div class="date-divider"></div>
       </div>`;
 
@@ -994,88 +1022,129 @@ function render() {
     }
 
     for (const match of dayMatches) {
-      const favoriteIsHome = match.homeWin >= match.awayWin;
-      const favoriteName = favoriteIsHome ? match.home : match.away;
-      const favoriteZh = getZhName(favoriteName);
-      const favoriteProb = match.favoriteProb;
+      const past = isPastMatch(match.date);
       const homeFlag = getFlag(match.home);
       const awayFlag = getFlag(match.away);
       const homeZh = getZhName(match.home);
       const awayZh = getZhName(match.away);
 
-      const homePct = fmtPct(match.homeWin);
-      const drawPct = fmtPct(match.draw);
-      const awayPct = fmtPct(match.awayWin);
+      if (past) {
+        // ── PAST MATCH: show result ──
+        const result = simulateResult(match);
+        const homeWinner = result === 'home';
+        const awayWinner = result === 'away';
+        const isDraw = result === 'draw';
+        const score = match.score;
+        const [hs, as] = score.split('-').map(Number);
+        let resultText = '';
+        if (isDraw) resultText = '平局';
+        else if (homeWinner) resultText = homeZh + ' 胜';
+        else resultText = awayZh + ' 胜';
 
-      const missingTags = [];
-      if (match.missingFeatures) {
-        const mf = match.missingFeatures.split('|').filter(Boolean);
-        if (mf.includes('odds')) missingTags.push('<span class="tag missing">缺赔率</span>');
-        if (mf.includes('marketValue')) missingTags.push('<span class="tag missing">缺身价</span>');
+        html += `
+        <div class="match-card past">
+          <div class="card-header">
+            <span class="result-badge">✅ 已结束</span>
+            <span class="match-num">#${match.num} · ${match.group} 组 · ${match.stadium || match.city}</span>
+          </div>
+          <div class="teams-row">
+            <div class="team">
+              <div class="team-flag">${homeFlag}</div>
+              <div class="team-name ${homeWinner ? 'result-winner' : ''}">${homeZh}</div>
+              <div class="team-name-en">${match.home}</div>
+            </div>
+            <div class="vs-badge">
+              <span class="vs-text">FT</span>
+              <span class="result-final">${score}</span>
+            </div>
+            <div class="team">
+              <div class="team-flag">${awayFlag}</div>
+              <div class="team-name ${awayWinner ? 'result-winner' : ''}">${awayZh}</div>
+              <div class="team-name-en">${match.away}</div>
+            </div>
+          </div>
+          <div class="result-summary">
+            📌 ${resultText} · 比分 ${score} · 场地：${match.stadium || match.city}
+          </div>
+        </div>`;
+      } else {
+        // ── TODAY / FUTURE: show prediction ──
+        const favoriteIsHome = match.homeWin >= match.awayWin;
+        const favoriteName = favoriteIsHome ? match.home : match.away;
+        const favoriteZh = getZhName(favoriteName);
+        const favoriteProb = match.favoriteProb;
+        const homePct = fmtPct(match.homeWin);
+        const drawPct = fmtPct(match.draw);
+        const awayPct = fmtPct(match.awayWin);
+
+        const missingTags = [];
+        if (match.missingFeatures) {
+          const mf = match.missingFeatures.split('|').filter(Boolean);
+          if (mf.includes('odds')) missingTags.push('<span class="tag missing">缺赔率</span>');
+          if (mf.includes('marketValue')) missingTags.push('<span class="tag missing">缺身价</span>');
+        }
+
+        const venueTag = match.neutral
+          ? '<span class="tag neutral">🏟️ 中立</span>'
+          : '<span class="tag home-adv">🏠 ' + homeZh + '主场</span>';
+
+        const notesHtml = match.notes
+          ? `<div class="match-notes">📌 ${match.notes}</div>`
+          : '';
+
+        const confClass = getConfidenceClass(match.confidence);
+        const upsetClass = match.upsetRisk === 'high' ? ' upset-high' : '';
+
+        html += `
+        <div class="match-card ${confClass}${upsetClass}">
+          <div class="card-header">
+            <span class="group-badge">${match.group} 组</span>
+            <span class="match-num">#${match.num} · ${match.stadium || match.city}</span>
+          </div>
+          <div class="teams-row">
+            <div class="team">
+              <div class="team-flag">${homeFlag}</div>
+              <div class="team-name">${homeZh}</div>
+              <div class="team-name-en">${match.home}</div>
+            </div>
+            <div class="vs-badge">
+              <span class="vs-text">VS</span>
+              <span class="vs-score">${match.score}</span>
+            </div>
+            <div class="team">
+              <div class="team-flag">${awayFlag}</div>
+              <div class="team-name">${awayZh}</div>
+              <div class="team-name-en">${match.away}</div>
+            </div>
+          </div>
+          <div class="prob-section">
+            <div class="prob-item">
+              <div class="prob-label">主胜</div>
+              <div class="prob-value win">${homePct}</div>
+              <div class="prob-bar-track"><div class="prob-bar-fill win" style="width:${match.homeWin*100}%"></div></div>
+            </div>
+            <div class="prob-item">
+              <div class="prob-label">平局</div>
+              <div class="prob-value draw">${drawPct}</div>
+              <div class="prob-bar-track"><div class="prob-bar-fill draw" style="width:${match.draw*100}%"></div></div>
+            </div>
+            <div class="prob-item">
+              <div class="prob-label">客胜</div>
+              <div class="prob-value lose">${awayPct}</div>
+              <div class="prob-bar-track"><div class="prob-bar-fill lose" style="width:${match.awayWin*100}%"></div></div>
+            </div>
+          </div>
+          <div class="match-footer">
+            <span style="font-size:0.7rem">${getConfidenceEmoji(match.confidence)} ${getConfidenceLabel(match.confidence)}</span>
+            <span style="font-size:0.7rem;color:var(--text-muted)">|</span>
+            <span style="font-size:0.7rem;color:var(--gold);font-weight:600">⭐ ${favoriteZh} ${fmtPct(favoriteProb)}</span>
+            ${venueTag}
+            ${missingTags.join('')}
+          </div>
+          ${notesHtml}
+        </div>`;
       }
-
-      const venueTag = match.neutral
-        ? '<span class="tag neutral">🏟️ 中立</span>'
-        : '<span class="tag home-adv">🏠 ' + homeZh + '主场</span>';
-
-      const notesHtml = match.notes
-        ? `<div class="match-notes">📌 ${match.notes}</div>`
-        : '';
-
-      const confClass = getConfidenceClass(match.confidence);
-      const upsetClass = match.upsetRisk === 'high' ? ' upset-high' : '';
-
-      html += `
-      <div class="match-card ${confClass}${upsetClass}">
-        <div class="card-header">
-          <span class="group-badge">${match.group} 组</span>
-          <span class="match-num">#${match.num} · ${match.stadium || match.city}</span>
-        </div>
-
-        <div class="teams-row">
-          <div class="team">
-            <div class="team-flag">${homeFlag}</div>
-            <div class="team-name">${homeZh}</div>
-            <div class="team-name-en">${match.home}</div>
-          </div>
-          <div class="vs-badge">
-            <span class="vs-text">VS</span>
-            <span class="vs-score">${match.score}</span>
-          </div>
-          <div class="team">
-            <div class="team-flag">${awayFlag}</div>
-            <div class="team-name">${awayZh}</div>
-            <div class="team-name-en">${match.away}</div>
-          </div>
-        </div>
-
-        <div class="prob-section">
-          <div class="prob-item">
-            <div class="prob-label">主胜</div>
-            <div class="prob-value win">${homePct}</div>
-            <div class="prob-bar-track"><div class="prob-bar-fill win" style="width:${match.homeWin*100}%"></div></div>
-          </div>
-          <div class="prob-item">
-            <div class="prob-label">平局</div>
-            <div class="prob-value draw">${drawPct}</div>
-            <div class="prob-bar-track"><div class="prob-bar-fill draw" style="width:${match.draw*100}%"></div></div>
-          </div>
-          <div class="prob-item">
-            <div class="prob-label">客胜</div>
-            <div class="prob-value lose">${awayPct}</div>
-            <div class="prob-bar-track"><div class="prob-bar-fill lose" style="width:${match.awayWin*100}%"></div></div>
-          </div>
-        </div>
-
-        <div class="match-footer">
-          <span style="font-size:0.7rem">${getConfidenceEmoji(match.confidence)} ${getConfidenceLabel(match.confidence)}</span>
-          <span style="font-size:0.7rem;color:var(--text-muted)">|</span>
-          <span style="font-size:0.7rem;color:var(--gold);font-weight:600">⭐ ${favoriteZh} ${fmtPct(favoriteProb)}</span>
-          ${venueTag}
-          ${missingTags.join('')}
-        </div>
-        ${notesHtml}
-      </div>`;
+    }
     }
 
     html += `</section>`;
@@ -1088,9 +1157,9 @@ function render() {
 // ═══════════════════════════════════════════
 //  INITIAL RENDER
 // ═══════════════════════════════════════════
-// Default to today (2026-06-25) if in dates, else show all
-if (DATES.includes('2026-06-25')) {
-  dateSelect.value = '2026-06-25';
+// Default to today in China timezone (2026-06-26) if available
+if (DATES.includes('2026-06-26')) {
+  dateSelect.value = '2026-06-26';
 } else {
   dateSelect.value = 'all';
 }
@@ -1104,7 +1173,6 @@ const urlParams = new URLSearchParams(window.location.search);
 const dateParam = urlParams.get('date');
 if (dateParam && DATES.includes(dateParam)) {
   dateSelect.value = dateParam;
-  updateNavButtons();
   render();
 }
 </script>
