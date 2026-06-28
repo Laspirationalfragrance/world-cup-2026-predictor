@@ -17,7 +17,11 @@
       "final": 0.3728,
       "champion": 0.2632,
       "out": 0.0053,
-      "avgPoints": 7.689
+      "avgPoints": 75.04,
+      "actualPts": 7,
+      "actualGD": 5,
+      "actualGF": 5,
+      "actualPosition": 1
     },
     {
       "team": "Argentina",
@@ -33,7 +37,11 @@
       "final": 0.2651,
       "champion": 0.1634,
       "out": 0.0231,
-      "avgPoints": 7.196
+      "avgPoints": 97.04,
+      "actualPts": 9,
+      "actualGD": 7,
+      "actualGF": 8,
+      "actualPosition": 1
     },
     {
       "team": "France",
@@ -49,7 +57,11 @@
       "final": 0.2213,
       "champion": 0.1275,
       "out": 0.0369,
-      "avgPoints": 6.742
+      "avgPoints": 98.04,
+      "actualPts": 9,
+      "actualGD": 8,
+      "actualGF": 10,
+      "actualPosition": 1
     },
     {
       "team": "England",
@@ -65,7 +77,11 @@
       "final": 0.1487,
       "champion": 0.0761,
       "out": 0.0326,
-      "avgPoints": 6.771
+      "avgPoints": 74.04,
+      "actualPts": 7,
+      "actualGD": 4,
+      "actualGF": 6,
+      "actualPosition": 1
     },
     {
       "team": "Portugal",
@@ -81,7 +97,11 @@
       "final": 0.0928,
       "champion": 0.0415,
       "out": 0.0734,
-      "avgPoints": 6.004
+      "avgPoints": 55.03,
+      "actualPts": 5,
+      "actualGD": 5,
+      "actualGF": 6,
+      "actualPosition": 2
     },
     {
       "team": "Brazil",
@@ -97,7 +117,11 @@
       "final": 0.0916,
       "champion": 0.041,
       "out": 0.0581,
-      "avgPoints": 6.304
+      "avgPoints": 76.04,
+      "actualPts": 7,
+      "actualGD": 6,
+      "actualGF": 7,
+      "actualPosition": 1
     },
     {
       "team": "Colombia",
@@ -113,7 +137,11 @@
       "final": 0.0853,
       "champion": 0.0369,
       "out": 0.0989,
-      "avgPoints": 5.622
+      "avgPoints": 73.04,
+      "actualPts": 7,
+      "actualGD": 3,
+      "actualGF": 4,
+      "actualPosition": 1
     },
     {
       "team": "Netherlands",
@@ -129,7 +157,11 @@
       "final": 0.0813,
       "champion": 0.0337,
       "out": 0.063,
-      "avgPoints": 6.272
+      "avgPoints": 76.04,
+      "actualPts": 7,
+      "actualGD": 6,
+      "actualGF": 10,
+      "actualPosition": 1
     },
     {
       "team": "Ecuador",
@@ -145,7 +177,11 @@
       "final": 0.0689,
       "champion": 0.0276,
       "out": 0.0691,
-      "avgPoints": 5.891
+      "avgPoints": 40.02,
+      "actualPts": 4,
+      "actualGD": 0,
+      "actualGF": 2,
+      "actualPosition": 3
     },
     {
       "team": "Germany",
@@ -161,7 +197,11 @@
       "final": 0.066,
       "champion": 0.0254,
       "out": 0.052,
-      "avgPoints": 6.246
+      "avgPoints": 66.04,
+      "actualPts": 6,
+      "actualGD": 6,
+      "actualGF": 10,
+      "actualPosition": 1
     },
     {
       "team": "Japan",
@@ -177,7 +217,11 @@
       "final": 0.0568,
       "champion": 0.022,
       "out": 0.1198,
-      "avgPoints": 5.448
+      "avgPoints": 54.03,
+      "actualPts": 5,
+      "actualGD": 4,
+      "actualGF": 7,
+      "actualPosition": 2
     },
     {
       "team": "Morocco",
@@ -193,7 +237,11 @@
       "final": 0.0575,
       "champion": 0.021,
       "out": 0.117,
-      "avgPoints": 5.421
+      "avgPoints": 73.03,
+      "actualPts": 7,
+      "actualGD": 3,
+      "actualGF": 6,
+      "actualPosition": 2
     },
     {
       "team": "Croatia",
@@ -209,7 +257,11 @@
       "final": 0.0476,
       "champion": 0.0186,
       "out": 0.118,
-      "avgPoints": 5.316
+      "avgPoints": 60.03,
+      "actualPts": 6,
+      "actualGD": 0,
+      "actualGF": 5,
+      "actualPosition": 2
     },
     {
       "team": "Norway",
@@ -225,7 +277,11 @@
       "final": 0.0379,
       "champion": 0.0138,
       "out": 0.2192,
-      "avgPoints": 4.495
+      "avgPoints": 61.03,
+      "actualPts": 6,
+      "actualGD": 1,
+      "actualGF": 8,
+      "actualPosition": 2
     },
     {
       "team": "Uruguay",
@@ -241,7 +297,11 @@
       "final": 0.0394,
       "champion": 0.0135,
       "out": 0.094,
-      "avgPoints": 5.334
+      "avgPoints": 19.02,
+      "actualPts": 2,
+      "actualGD": -1,
+      "actualGF": 3,
+      "actualPosition": 3
     },
     {
       "team": "Mexico",
@@ -257,7 +317,11 @@
       "final": 0.0406,
       "champion": 0.0132,
       "out": 0.0634,
-      "avgPoints": 6.408
+      "avgPoints": 96.04,
+      "actualPts": 9,
+      "actualGD": 6,
+      "actualGF": 6,
+      "actualPosition": 1
     },
     {
       "team": "Turkey",
@@ -273,7 +337,11 @@
       "final": 0.03,
       "champion": 0.01,
       "out": 0.2723,
-      "avgPoints": 4.382
+      "avgPoints": 28.01,
+      "actualPts": 3,
+      "actualGD": -2,
+      "actualGF": 3,
+      "actualPosition": 4
     },
     {
       "team": "Switzerland",
@@ -289,7 +357,11 @@
       "final": 0.0328,
       "champion": 0.009,
       "out": 0.0574,
-      "avgPoints": 6.214
+      "avgPoints": 74.04,
+      "actualPts": 7,
+      "actualGD": 4,
+      "actualGF": 7,
+      "actualPosition": 1
     },
     {
       "team": "Belgium",
@@ -305,7 +377,11 @@
       "final": 0.0262,
       "champion": 0.0076,
       "out": 0.1013,
-      "avgPoints": 5.867
+      "avgPoints": 54.04,
+      "actualPts": 5,
+      "actualGD": 4,
+      "actualGF": 6,
+      "actualPosition": 1
     },
     {
       "team": "Canada",
@@ -321,7 +397,11 @@
       "final": 0.0173,
       "champion": 0.0049,
       "out": 0.0592,
-      "avgPoints": 6.193
+      "avgPoints": 45.03,
+      "actualPts": 4,
+      "actualGD": 5,
+      "actualGF": 8,
+      "actualPosition": 2
     },
     {
       "team": "Senegal",
@@ -337,7 +417,11 @@
       "final": 0.0152,
       "champion": 0.0041,
       "out": 0.3135,
-      "avgPoints": 3.867
+      "avgPoints": 32.02,
+      "actualPts": 3,
+      "actualGD": 2,
+      "actualGF": 8,
+      "actualPosition": 3
     },
     {
       "team": "Australia",
@@ -353,7 +437,11 @@
       "final": 0.012,
       "champion": 0.0037,
       "out": 0.4024,
-      "avgPoints": 3.57
+      "avgPoints": 40.03,
+      "actualPts": 4,
+      "actualGD": 0,
+      "actualGF": 2,
+      "actualPosition": 2
     },
     {
       "team": "Iran",
@@ -369,7 +457,11 @@
       "final": 0.0123,
       "champion": 0.0034,
       "out": 0.2539,
-      "avgPoints": 4.44
+      "avgPoints": 30.02,
+      "actualPts": 3,
+      "actualGD": 0,
+      "actualGF": 3,
+      "actualPosition": 3
     },
     {
       "team": "Austria",
@@ -385,7 +477,11 @@
       "final": 0.0123,
       "champion": 0.0034,
       "out": 0.3115,
-      "avgPoints": 3.915
+      "avgPoints": 40.03,
+      "actualPts": 4,
+      "actualGD": 0,
+      "actualGF": 6,
+      "actualPosition": 2
     },
     {
       "team": "Paraguay",
@@ -401,7 +497,11 @@
       "final": 0.0135,
       "champion": 0.0034,
       "out": 0.3581,
-      "avgPoints": 3.825
+      "avgPoints": 38.02,
+      "actualPts": 4,
+      "actualGD": -2,
+      "actualGF": 2,
+      "actualPosition": 3
     },
     {
       "team": "South Korea",
@@ -417,7 +517,11 @@
       "final": 0.0104,
       "champion": 0.0027,
       "out": 0.2263,
-      "avgPoints": 4.583
+      "avgPoints": 29.02,
+      "actualPts": 3,
+      "actualGD": -1,
+      "actualGF": 2,
+      "actualPosition": 3
     },
     {
       "team": "United States",
@@ -433,7 +537,11 @@
       "final": 0.0091,
       "champion": 0.0023,
       "out": 0.2296,
-      "avgPoints": 4.731
+      "avgPoints": 64.04,
+      "actualPts": 6,
+      "actualGD": 4,
+      "actualGF": 8,
+      "actualPosition": 1
     },
     {
       "team": "Panama",
@@ -449,7 +557,11 @@
       "final": 0.0063,
       "champion": 0.0014,
       "out": 0.3919,
-      "avgPoints": 3.351
+      "avgPoints": -3.99,
+      "actualPts": 0,
+      "actualGD": -4,
+      "actualGF": 0,
+      "actualPosition": 4
     },
     {
       "team": "Scotland",
@@ -465,7 +577,11 @@
       "final": 0.0054,
       "champion": 0.0013,
       "out": 0.3866,
-      "avgPoints": 3.448
+      "avgPoints": 27.02,
+      "actualPts": 3,
+      "actualGD": -3,
+      "actualGF": 1,
+      "actualPosition": 3
     },
     {
       "team": "Uzbekistan",
@@ -481,7 +597,11 @@
       "final": 0.0047,
       "champion": 0.0011,
       "out": 0.504,
-      "avgPoints": 2.881
+      "avgPoints": -8.99,
+      "actualPts": 0,
+      "actualGD": -9,
+      "actualGF": 2,
+      "actualPosition": 4
     },
     {
       "team": "Algeria",
@@ -497,7 +617,11 @@
       "final": 0.005,
       "champion": 0.0009,
       "out": 0.3894,
-      "avgPoints": 3.467
+      "avgPoints": 38.02,
+      "actualPts": 4,
+      "actualGD": -2,
+      "actualGF": 5,
+      "actualPosition": 3
     },
     {
       "team": "Czech Republic",
@@ -513,7 +637,11 @@
       "final": 0.0029,
       "champion": 0.0005,
       "out": 0.374,
-      "avgPoints": 3.606
+      "avgPoints": 6.01,
+      "actualPts": 1,
+      "actualGD": -4,
+      "actualGF": 2,
+      "actualPosition": 4
     },
     {
       "team": "Egypt",
@@ -529,7 +657,11 @@
       "final": 0.0028,
       "champion": 0.0005,
       "out": 0.3754,
-      "avgPoints": 3.653
+      "avgPoints": 52.03,
+      "actualPts": 5,
+      "actualGD": 2,
+      "actualGF": 5,
+      "actualPosition": 2
     },
     {
       "team": "Jordan",
@@ -545,7 +677,11 @@
       "final": 0.0012,
       "champion": 0.0004,
       "out": 0.6351,
-      "avgPoints": 2.249
+      "avgPoints": -4.99,
+      "actualPts": 0,
+      "actualGD": -5,
+      "actualGF": 3,
+      "actualPosition": 4
     },
     {
       "team": "Ivory Coast",
@@ -561,7 +697,11 @@
       "final": 0.0018,
       "champion": 0.0003,
       "out": 0.4425,
-      "avgPoints": 3.084
+      "avgPoints": 62.03,
+      "actualPts": 6,
+      "actualGD": 2,
+      "actualGF": 4,
+      "actualPosition": 2
     },
     {
       "team": "Sweden",
@@ -577,7 +717,11 @@
       "final": 0.0013,
       "champion": 0.0001,
       "out": 0.5084,
-      "avgPoints": 2.839
+      "avgPoints": 40.02,
+      "actualPts": 4,
+      "actualGD": 0,
+      "actualGF": 7,
+      "actualPosition": 3
     },
     {
       "team": "New Zealand",
@@ -593,7 +737,11 @@
       "final": 0.0009,
       "champion": 0.0001,
       "out": 0.5529,
-      "avgPoints": 2.698
+      "avgPoints": 4.01,
+      "actualPts": 1,
+      "actualGD": -6,
+      "actualGF": 4,
+      "actualPosition": 4
     },
     {
       "team": "Saudi Arabia",
@@ -609,7 +757,11 @@
       "final": 0.0003,
       "champion": 0.0001,
       "out": 0.6084,
-      "avgPoints": 2.255
+      "avgPoints": 16.01,
+      "actualPts": 2,
+      "actualGD": -4,
+      "actualGF": 1,
+      "actualPosition": 4
     },
     {
       "team": "Tunisia",
@@ -625,7 +777,11 @@
       "final": 0.0006,
       "champion": 0.0001,
       "out": 0.6315,
-      "avgPoints": 2.252
+      "avgPoints": -9.99,
+      "actualPts": 0,
+      "actualGD": -10,
+      "actualGF": 2,
+      "actualPosition": 4
     },
     {
       "team": "South Africa",
@@ -641,7 +797,11 @@
       "final": 0.0003,
       "champion": 0.0001,
       "out": 0.6623,
-      "avgPoints": 2.137
+      "avgPoints": 39.03,
+      "actualPts": 4,
+      "actualGD": -1,
+      "actualGF": 2,
+      "actualPosition": 2
     },
     {
       "team": "Haiti",
@@ -657,7 +817,11 @@
       "final": 0.0002,
       "champion": 0.0001,
       "out": 0.7637,
-      "avgPoints": 1.623
+      "avgPoints": -5.99,
+      "actualPts": 0,
+      "actualGD": -6,
+      "actualGF": 2,
+      "actualPosition": 4
     },
     {
       "team": "Bosnia and Herzegovina",
@@ -673,7 +837,11 @@
       "final": 0.0003,
       "champion": 0,
       "out": 0.524,
-      "avgPoints": 2.693
+      "avgPoints": 39.02,
+      "actualPts": 4,
+      "actualGD": -1,
+      "actualGF": 5,
+      "actualPosition": 3
     },
     {
       "team": "DR Congo",
@@ -689,7 +857,11 @@
       "final": 0.0007,
       "champion": 0,
       "out": 0.6627,
-      "avgPoints": 2.13
+      "avgPoints": 41.02,
+      "actualPts": 4,
+      "actualGD": 1,
+      "actualGF": 4,
+      "actualPosition": 3
     },
     {
       "team": "Qatar",
@@ -705,7 +877,11 @@
       "final": 0.0001,
       "champion": 0,
       "out": 0.7164,
-      "avgPoints": 1.801
+      "avgPoints": 2.01,
+      "actualPts": 1,
+      "actualGD": -8,
+      "actualGF": 2,
+      "actualPosition": 4
     },
     {
       "team": "Cape Verde",
@@ -721,7 +897,11 @@
       "final": 0.0001,
       "champion": 0,
       "out": 0.7289,
-      "avgPoints": 1.706
+      "avgPoints": 30.03,
+      "actualPts": 3,
+      "actualGD": 0,
+      "actualGF": 2,
+      "actualPosition": 2
     },
     {
       "team": "Iraq",
@@ -737,7 +917,11 @@
       "final": 0.0002,
       "champion": 0,
       "out": 0.7514,
-      "avgPoints": 1.68
+      "avgPoints": -10.99,
+      "actualPts": 0,
+      "actualGD": -11,
+      "actualGF": 1,
+      "actualPosition": 4
     },
     {
       "team": "Ghana",
@@ -753,7 +937,11 @@
       "final": 0.0001,
       "champion": 0,
       "out": 0.7795,
-      "avgPoints": 1.478
+      "avgPoints": 40.02,
+      "actualPts": 4,
+      "actualGD": 0,
+      "actualGF": 2,
+      "actualPosition": 3
     },
     {
       "team": "Curaçao",
@@ -769,7 +957,11 @@
       "final": 0,
       "champion": 0,
       "out": 0.7815,
-      "avgPoints": 1.523
+      "avgPoints": 2.01,
+      "actualPts": 1,
+      "actualGD": -8,
+      "actualGF": 1,
+      "actualPosition": 4
     }
   ],
   "topChampion": [

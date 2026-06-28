@@ -1,3 +1,5 @@
 node_modules/
 .claude/
 output/web-data.json
+config/auth.json
+output/*.backup.json
