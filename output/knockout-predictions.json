@@ -1,303 +1,370 @@
-# 🏆 2026 世界杯淘汰赛预测报告
-
-生成时间: 2026-06-25T09:14:49.140Z
-模型: Elo-based simplified knockout prediction
-小组结果来源: 20,000次蒙特卡洛模拟 (avgPoints)
-
----
-
-## 📊 小组出线结果
-
-| A 组 | 🥇 Mexico | 🥈 South Korea | 🥉 Czech Republic |
-| B 组 | 🥇 Switzerland | 🥈 Canada | 🥉 Bosnia and Herzegovina |
-| C 组 | 🥇 Brazil | 🥈 Morocco | 🥉 Scotland |
-| D 组 | 🥇 United States | 🥈 Turkey | 🥉 Paraguay |
-| E 组 | 🥇 Germany | 🥈 Ecuador | 🥉 Ivory Coast |
-| F 组 | 🥇 Netherlands | 🥈 Japan | 🥉 Sweden |
-| G 组 | 🥇 Belgium | 🥈 Iran | 🥉 Egypt |
-| H 组 | 🥇 Spain | 🥈 Uruguay | 🥉 Saudi Arabia |
-| I 组 | 🥇 France | 🥈 Norway | 🥉 Senegal |
-| J 组 | 🥇 Argentina | 🥈 Austria | 🥉 Algeria |
-| K 组 | 🥇 Portugal | 🥈 Colombia | 🥉 Uzbekistan |
-| L 组 | 🥇 England | 🥈 Croatia | 🥉 Panama |
-
-## 🏅 最佳8个小组第三
-
-A, C, D, E, G, I, J, L
-
----
-
-## 🏆 R32 淘汰赛预测
-
-### Match 73: South Korea vs Canada
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-06-28 |
-| 轮次 | R32 |
-| 场地 | 洛杉矶体育场, 洛杉矶 |
-| 对阵说明 | A2 vs B2 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 39.6% | 31.5% | 28.9% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
-### Match 74: Germany vs Czech Republic
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-06-28 |
-| 轮次 | R32 |
-| 场地 | 波士顿体育场, 波士顿 |
-| 对阵说明 | E1 vs A3 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 45.7% | 31.1% | 23.2% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-1 | 🔴低 | 🟡中 |
-
-### Match 75: Netherlands vs Morocco
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-06-29 |
-| 轮次 | R32 |
-| 场地 | 蒙特雷体育场, 蒙特雷 |
-| 对阵说明 | F1 vs C2 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 40.9% | 31.4% | 27.7% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
-### Match 76: Brazil vs Japan
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-06-29 |
-| 轮次 | R32 |
-| 场地 | 休斯敦体育场, 休斯敦 |
-| 对阵说明 | C1 vs F2 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 41.2% | 31.4% | 27.3% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
-### Match 77: France vs Paraguay
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-06-30 |
-| 轮次 | R32 |
-| 场地 | 纽约新泽西体育场, 纽约 |
-| 对阵说明 | I1 vs D3 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 46.2% | 31.0% | 22.8% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-1 | 🔴低 | 🟡中 |
-
-### Match 78: Ecuador vs Norway
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-06-30 |
-| 轮次 | R32 |
-| 场地 | 达拉斯体育场, 达拉斯 |
-| 对阵说明 | E2 vs I2 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 40.9% | 31.4% | 27.6% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
-### Match 79: Mexico vs Scotland
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-01 |
-| 轮次 | R32 |
-| 场地 | 墨西哥城体育场, 墨西哥城 |
-| 对阵说明 | A1 vs C3 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 43.2% | 31.3% | 25.5% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
-### Match 80: England vs Egypt
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-01 |
-| 轮次 | R32 |
-| 场地 | 亚特兰大体育场, 亚特兰大 |
-| 对阵说明 | L1 vs G3 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 47.6% | 30.8% | 21.5% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-1 | 🔴低 | 🟡中 |
-
-### Match 81: United States vs Senegal
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-02 |
-| 轮次 | R32 |
-| 场地 | 旧金山湾区体育场, 旧金山 |
-| 对阵说明 | D1 vs I3 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 38.3% | 31.8% | 29.9% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
-### Match 82: Belgium vs Algeria
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-02 |
-| 轮次 | R32 |
-| 场地 | 西雅图体育场, 西雅图 |
-| 对阵说明 | G1 vs J3 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 41.8% | 31.4% | 26.8% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
-### Match 83: Colombia vs Croatia
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-03 |
-| 轮次 | R32 |
-| 场地 | 多伦多体育场, 多伦多 |
-| 对阵说明 | K2 vs L2 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 41.3% | 31.4% | 27.2% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
-### Match 84: Spain vs Austria
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-03 |
-| 轮次 | R32 |
-| 场地 | 洛杉矶体育场, 洛杉矶 |
-| 对阵说明 | H1 vs J2 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 48.8% | 30.6% | 20.6% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 1-1 | 🔴低 | 🟡中 |
-
-### Match 85: Switzerland vs Ivory Coast
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-01 |
-| 轮次 | R32 |
-| 场地 | 温哥华体育场, 温哥华 |
-| 对阵说明 | B1 vs E3 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 44.0% | 31.3% | 24.7% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-1 | 🔴低 | 🔴高 |
-
-### Match 86: Argentina vs Uruguay
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-02 |
-| 轮次 | R32 |
-| 场地 | 迈阿密体育场, 迈阿密 |
-| 对阵说明 | J1 vs H2 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 45.3% | 31.1% | 23.6% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-1 | 🔴低 | 🟡中 |
-
-### Match 87: Portugal vs Panama
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-03 |
-| 轮次 | R32 |
-| 场地 | 堪萨斯城体育场, 堪萨斯城 |
-| 对阵说明 | K1 vs L3 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 45.1% | 31.1% | 23.8% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-1 | 🔴低 | 🟡中 |
-
-### Match 88: Turkey vs Iran
-
-| 项目 | 详情 |
-|---|---|
-| 日期 | 2026-07-03 |
-| 轮次 | R32 |
-| 场地 | 达拉斯体育场, 达拉斯 |
-| 对阵说明 | D2 vs G2 |
-
-| 主胜 | 平局 | 客胜 |
-|:---:|:---:|:---:|
-| 42.1% | 31.4% | 26.5% |
-
-| 预测比分 | 置信度 | 爆冷风险 |
-|:---:|:---:|:---:|
-| 2-2 | 🔴低 | 🔴高 |
-
+[
+  {
+    "matchId": "2026-WC-KO-073",
+    "matchNumber": 73,
+    "date": "2026-06-28",
+    "round": "R32",
+    "homeTeam": "South Korea",
+    "awayTeam": "Canada",
+    "stadium": "洛杉矶体育场",
+    "city": "洛杉矶",
+    "neutral": true,
+    "homeWin": 0.395780542793785,
+    "draw": 0.31549316406988476,
+    "awayWin": 0.28872629313633014,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.395780542793785,
+    "bracketNote": "A2 vs B2",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-074",
+    "matchNumber": 74,
+    "date": "2026-06-28",
+    "round": "R32",
+    "homeTeam": "Germany",
+    "awayTeam": "Czech Republic",
+    "stadium": "波士顿体育场",
+    "city": "波士顿",
+    "neutral": true,
+    "homeWin": 0.45694428722493374,
+    "draw": 0.31080870171430464,
+    "awayWin": 0.23224701106076148,
+    "predictedScore": "2-1",
+    "confidence": "low",
+    "upsetRisk": "medium",
+    "favoriteProbability": 0.45694428722493374,
+    "bracketNote": "E1 vs A3",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-075",
+    "matchNumber": 75,
+    "date": "2026-06-29",
+    "round": "R32",
+    "homeTeam": "Netherlands",
+    "awayTeam": "Morocco",
+    "stadium": "蒙特雷体育场",
+    "city": "蒙特雷",
+    "neutral": true,
+    "homeWin": 0.40867087349623366,
+    "draw": 0.31442655999310415,
+    "awayWin": 0.27690256651066214,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.40867087349623366,
+    "bracketNote": "F1 vs C2",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-076",
+    "matchNumber": 76,
+    "date": "2026-06-29",
+    "round": "R32",
+    "homeTeam": "Brazil",
+    "awayTeam": "Japan",
+    "stadium": "休斯敦体育场",
+    "city": "休斯敦",
+    "neutral": true,
+    "homeWin": 0.41236546926247825,
+    "draw": 0.31429723726212777,
+    "awayWin": 0.273337293475394,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.41236546926247825,
+    "bracketNote": "C1 vs F2",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-077",
+    "matchNumber": 77,
+    "date": "2026-06-30",
+    "round": "R32",
+    "homeTeam": "France",
+    "awayTeam": "Paraguay",
+    "stadium": "纽约新泽西体育场",
+    "city": "纽约",
+    "neutral": true,
+    "homeWin": 0.46187198080068265,
+    "draw": 0.31020868749183067,
+    "awayWin": 0.22791933170748668,
+    "predictedScore": "2-1",
+    "confidence": "low",
+    "upsetRisk": "medium",
+    "favoriteProbability": 0.46187198080068265,
+    "bracketNote": "I1 vs D3",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-078",
+    "matchNumber": 78,
+    "date": "2026-06-30",
+    "round": "R32",
+    "homeTeam": "Ecuador",
+    "awayTeam": "Norway",
+    "stadium": "达拉斯体育场",
+    "city": "达拉斯",
+    "neutral": true,
+    "homeWin": 0.4093837678582846,
+    "draw": 0.31440354765434464,
+    "awayWin": 0.2762126844873706,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.4093837678582846,
+    "bracketNote": "E2 vs I2",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-079",
+    "matchNumber": 79,
+    "date": "2026-07-01",
+    "round": "R32",
+    "homeTeam": "Mexico",
+    "awayTeam": "Scotland",
+    "stadium": "墨西哥城体育场",
+    "city": "墨西哥城",
+    "neutral": true,
+    "homeWin": 0.4317273815020894,
+    "draw": 0.31321563951151443,
+    "awayWin": 0.25505697898639623,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.4317273815020894,
+    "bracketNote": "A1 vs C3",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-080",
+    "matchNumber": 80,
+    "date": "2026-07-01",
+    "round": "R32",
+    "homeTeam": "England",
+    "awayTeam": "Egypt",
+    "stadium": "亚特兰大体育场",
+    "city": "亚特兰大",
+    "neutral": true,
+    "homeWin": 0.47648257513845305,
+    "draw": 0.30818377812725267,
+    "awayWin": 0.21533364673429425,
+    "predictedScore": "2-1",
+    "confidence": "low",
+    "upsetRisk": "medium",
+    "favoriteProbability": 0.47648257513845305,
+    "bracketNote": "L1 vs G3",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-081",
+    "matchNumber": 81,
+    "date": "2026-07-02",
+    "round": "R32",
+    "homeTeam": "United States",
+    "awayTeam": "Senegal",
+    "stadium": "旧金山湾区体育场",
+    "city": "旧金山",
+    "neutral": true,
+    "homeWin": 0.38301579992449214,
+    "draw": 0.3176013469677491,
+    "awayWin": 0.2993828531077587,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.38301579992449214,
+    "bracketNote": "D1 vs I3",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-082",
+    "matchNumber": 82,
+    "date": "2026-07-02",
+    "round": "R32",
+    "homeTeam": "Belgium",
+    "awayTeam": "Algeria",
+    "stadium": "西雅图体育场",
+    "city": "西雅图",
+    "neutral": true,
+    "homeWin": 0.4182419112756387,
+    "draw": 0.31404037477596997,
+    "awayWin": 0.2677177139483912,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.4182419112756387,
+    "bracketNote": "G1 vs J3",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-083",
+    "matchNumber": 83,
+    "date": "2026-07-03",
+    "round": "R32",
+    "homeTeam": "Colombia",
+    "awayTeam": "Croatia",
+    "stadium": "多伦多体育场",
+    "city": "多伦多",
+    "neutral": true,
+    "homeWin": 0.41330907545058115,
+    "draw": 0.314260217875195,
+    "awayWin": 0.2724307066742239,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.41330907545058115,
+    "bracketNote": "K2 vs L2",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-084",
+    "matchNumber": 84,
+    "date": "2026-07-03",
+    "round": "R32",
+    "homeTeam": "Spain",
+    "awayTeam": "Austria",
+    "stadium": "洛杉矶体育场",
+    "city": "洛杉矶",
+    "neutral": true,
+    "homeWin": 0.48758505695974685,
+    "draw": 0.30640114928318435,
+    "awayWin": 0.20601379375706888,
+    "predictedScore": "1-1",
+    "confidence": "low",
+    "upsetRisk": "medium",
+    "favoriteProbability": 0.48758505695974685,
+    "bracketNote": "H1 vs J2",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-085",
+    "matchNumber": 85,
+    "date": "2026-07-01",
+    "round": "R32",
+    "homeTeam": "Switzerland",
+    "awayTeam": "Ivory Coast",
+    "stadium": "温哥华体育场",
+    "city": "温哥华",
+    "neutral": true,
+    "homeWin": 0.43995017378858375,
+    "draw": 0.31255363490969224,
+    "awayWin": 0.24749619130172387,
+    "predictedScore": "2-1",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.43995017378858375,
+    "bracketNote": "B1 vs E3",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-086",
+    "matchNumber": 86,
+    "date": "2026-07-02",
+    "round": "R32",
+    "homeTeam": "Argentina",
+    "awayTeam": "Uruguay",
+    "stadium": "迈阿密体育场",
+    "city": "迈阿密",
+    "neutral": true,
+    "homeWin": 0.4531116077068557,
+    "draw": 0.3112462714380336,
+    "awayWin": 0.23564212085511066,
+    "predictedScore": "2-1",
+    "confidence": "low",
+    "upsetRisk": "medium",
+    "favoriteProbability": 0.4531116077068557,
+    "bracketNote": "J1 vs H2",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-087",
+    "matchNumber": 87,
+    "date": "2026-07-03",
+    "round": "R32",
+    "homeTeam": "Portugal",
+    "awayTeam": "Panama",
+    "stadium": "堪萨斯城体育场",
+    "city": "堪萨斯城",
+    "neutral": true,
+    "homeWin": 0.4508006692494419,
+    "draw": 0.31149775574987115,
+    "awayWin": 0.23770157500068692,
+    "predictedScore": "2-1",
+    "confidence": "low",
+    "upsetRisk": "medium",
+    "favoriteProbability": 0.4508006692494419,
+    "bracketNote": "K1 vs L3",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  },
+  {
+    "matchId": "2026-WC-KO-088",
+    "matchNumber": 88,
+    "date": "2026-07-03",
+    "round": "R32",
+    "homeTeam": "Turkey",
+    "awayTeam": "Iran",
+    "stadium": "达拉斯体育场",
+    "city": "达拉斯",
+    "neutral": true,
+    "homeWin": 0.421173296771131,
+    "draw": 0.3138888773931764,
+    "awayWin": 0.26493782583569275,
+    "predictedScore": "2-2",
+    "confidence": "low",
+    "upsetRisk": "high",
+    "favoriteProbability": 0.421173296771131,
+    "bracketNote": "D2 vs G2",
+    "modelVersion": "elo-simplified-knockout",
+    "oddsUsed": false,
+    "missingFeatures": "odds|marketValue|squadRating",
+    "matchupNotes": ""
+  }
+]
