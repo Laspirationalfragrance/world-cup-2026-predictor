@@ -165,19 +165,13 @@ function predictMatch(homeTeam, awayTeam, matchNum = 0) {
 
   const winner = advance.homeAdvance >= advance.awayAdvance ? homeTeam : awayTeam;
 
-  // Determine most likely path
-  let likelyPath;
-  let isDraw = false;
-  const [sgH, sgA] = score90.split('-').map(Number);
-  isDraw = (sgH === sgA); // Draw if score is equal, regardless of probability
-
-  if (!isDraw) {
-    const winner = advance.homeAdvance >= advance.awayAdvance ? homeTeam : awayTeam;
-    likelyPath = `${winner} 常规时间胜`;
-  } else {
-    const penWinner = penProbs.homeWin >= penProbs.awayWin ? homeTeam : awayTeam;
-    likelyPath = `平局→点球 ${penWinner} 胜`;
-  }
+  // Determine most likely path from probabilities (NOT predicted score)
+  // This ensures the path text is always consistent with the actual winner
+  const maxProb = Math.max(probs90.homeWin, probs90.draw, probs90.awayWin);
+  const isDraw = (maxProb === probs90.draw);
+  let likelyPath = isDraw
+    ? `平局→点球 ${winner} 胜`
+    : `${winner} 常规时间胜`;
 
   // Penalty score (only relevant for drawn matches)
   const penScoreResult = predictPenaltyScore(homeElo, awayElo, penProbs.homeWin, penProbs.awayWin, matchNum || 0);
