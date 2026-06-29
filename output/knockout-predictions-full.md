@@ -1,3 +1,4 @@
+[knockout-predictions-full.md](https://github.com/user-attachments/files/29446485/knockout-predictions-full.md)
 # 🏆 2026 世界杯完整淘汰赛预测报告 (含点球模型)
 
 > 生成: 2026-06-28 | 模型: Elo + 点球大战 | 小组: 20,000次模拟
