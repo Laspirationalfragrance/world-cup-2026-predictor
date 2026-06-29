@@ -1,3 +1,4 @@
+[knockout-predictions.md](https://github.com/user-attachments/files/29446494/knockout-predictions.md)
 # 🏆 2026 世界杯淘汰赛预测报告
 
 生成时间: 2026-06-25T09:14:49.140Z
